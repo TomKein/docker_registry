@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+      - 5000:5000  
+    volumes:
+      - ./data:/var/lib/registry
+      - ./certs:/certs
+    environment:
+      REGISTRY_HTTP_ADDR: 0.0.0.0:5000
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/registry.crt
+      REGISTRY_HTTP_TLS_KEY: /certs/registry.key
+    networks:
+      am:
+        ipv4_address: 192.168.1.24
+
+
+networks:
+  am:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 192.168.1.0/24
+       
