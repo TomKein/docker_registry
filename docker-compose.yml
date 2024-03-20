@@ -14,15 +14,11 @@ services:
       REGISTRY_HTTP_TLS_CERTIFICATE: /certs/registry.crt
       REGISTRY_HTTP_TLS_KEY: /certs/registry.key
     networks:
-      am:
+      mvlan:
         ipv4_address: 192.168.1.24
 
 
 networks:
-  am:
-    driver: bridge
-    ipam:
-     config:
-       - subnet: 192.168.1.0/24
-       - gateway: 192.168.1.1
+  mvaln:
+    external: true
        
