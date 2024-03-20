@@ -1,5 +1,3 @@
-version: '2'
-
 services:
   registry:
     restart: always
@@ -19,6 +17,6 @@ services:
 
 
 networks:
-  mvaln:
+  mvlan:
     external: true
        
